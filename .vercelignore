@@ -1,0 +1,11 @@
+.git
+.vercel
+node_modules
+.DS_Store
+.env
+.env.*
+Launch.command
+server.py
+server.mjs
+__pycache__
+*.zip
