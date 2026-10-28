@@ -2429,3 +2429,44 @@ dialog p,dialog li {
 #feedback-notes {width:100%;padding:12px;font:inherit;line-height:1.5;border:1px solid #cbc3b4;background:#fffdf7;resize:vertical}
 .zoo-objective {display:block!important}
 @media(max-width:900px){.brief-grid {grid-template-columns:1fr;gap:24px}.turn-coach {flex-direction:column}.coach-tools {flex-direction:row;flex-wrap:wrap}.briefing>h1 {font-size:42px}.turn-coach ol {display:block}.turn-coach li {max-width:none}}
+
+/* Variable-size Cooperative Puzzle boards. Letters identify pieces as well as color. */
+.expanded-puzzle {max-width:540px;width:100%;margin:20px auto}
+.puzzle-tray {flex-wrap:wrap;gap:10px}
+.puzzle-tray .btn {min-width:72px;min-height:78px}
+.puzzle-instruction {line-height:1.6;margin:18px 0}
+.puzzle-board .hint-anchor {outline:3px solid #b04432;outline-offset:-3px}
+.puzzle-board .preview-cell {background:#b5c8a7;box-shadow:inset 0 0 0 2px #587449}
+.puzzle-board .invalid-cell {background:#edc9bc}
+.puzzle-fill.tile-0 {background:#789268;color:#fff}
+.puzzle-tray .tile-0 .filled {background:#789268}
+.puzzle-fill.tile-1 {background:#b58c6a;color:#fff}
+.puzzle-tray .tile-1 .filled {background:#b58c6a}
+.puzzle-fill.tile-2 {background:#78989a;color:#fff}
+.puzzle-tray .tile-2 .filled {background:#78989a}
+.puzzle-fill.tile-3 {background:#a59b5b;color:#fff}
+.puzzle-tray .tile-3 .filled {background:#a59b5b}
+.puzzle-fill.tile-4 {background:#8d7d9b;color:#fff}
+.puzzle-tray .tile-4 .filled {background:#8d7d9b}
+.puzzle-fill.tile-5 {background:#a77773;color:#fff}
+.puzzle-tray .tile-5 .filled {background:#a77773}
+.puzzle-fill.tile-6 {background:#557e77;color:#fff}
+.puzzle-tray .tile-6 .filled {background:#557e77}
+.puzzle-fill.tile-7 {background:#7d829e;color:#fff}
+.puzzle-tray .tile-7 .filled {background:#7d829e}
+.puzzle-fill.tile-8 {background:#9a835d;color:#fff}
+.puzzle-tray .tile-8 .filled {background:#9a835d}
+.puzzle-fill.tile-9 {background:#75864f;color:#fff}
+.puzzle-tray .tile-9 .filled {background:#75864f}
+.puzzle-fill.tile-10 {background:#537d95;color:#fff}
+.puzzle-tray .tile-10 .filled {background:#537d95}
+.puzzle-fill.tile-11 {background:#ae7657;color:#fff}
+.puzzle-tray .tile-11 .filled {background:#ae7657}
+.puzzle-fill.tile-12 {background:#786c92;color:#fff}
+.puzzle-tray .tile-12 .filled {background:#786c92}
+.puzzle-fill.tile-13 {background:#a0848c;color:#fff}
+.puzzle-tray .tile-13 .filled {background:#a0848c}
+.puzzle-fill.tile-14 {background:#6f8064;color:#fff}
+.puzzle-tray .tile-14 .filled {background:#6f8064}
+.puzzle-fill.tile-15 {background:#8a8b58;color:#fff}
+.puzzle-tray .tile-15 .filled {background:#8a8b58}
