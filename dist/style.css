@@ -2470,3 +2470,10 @@ dialog p,dialog li {
 .puzzle-tray .tile-14 .filled {background:#6f8064}
 .puzzle-fill.tile-15 {background:#8a8b58;color:#fff}
 .puzzle-tray .tile-15 .filled {background:#8a8b58}
+
+.mode-switch {display:flex;align-items:center;gap:4px;padding:4px;border:1px solid #d2d6c8;border-radius:6px;background:#f7f7ef}
+.mode-switch>span {font:9px var(--mono);padding:0 7px;color:#6a715f;letter-spacing:.5px}
+.mode-switch button {font:12px var(--sans);padding:7px 10px;background:transparent;border:0;border-radius:3px;color:#59604e;cursor:pointer}
+.mode-switch button.selected {background:#5f7354;color:white}
+.seen-faces>div {display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.seen-faces .portrait {width:70px;height:75px}
+@media(max-width:700px){.topbar {height:auto;min-height:74px;gap:12px;flex-wrap:wrap;padding-top:14px;padding-bottom:14px}.top-actions {flex-wrap:wrap}.mode-switch>span {font-size:8px;padding:0 3px}.mode-switch button {padding:7px 8px}.solo-pill {display:none}}

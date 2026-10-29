@@ -1,11 +1,8 @@
+import {gameDifficulty,difficultyFor as tuning} from './difficulty.js';
 import {int,shuffle,range,esc,btn,note,metric,metrics,controls,grid,cell,log,finish,error,transform,shapeHTML,neighbors} from './core.js';
 
 // These are original solo puzzles, not reconstructed broadcast silhouettes.
-export const PUZZLE_LEVELS={
-  relaxed:[[4,3],[4,4],[4,4]],
-  standard:[[4,4],[6,4],[6,6]],
-  hard:[[6,6],[8,6],[8,8]]
-};
+export const PUZZLE_LEVELS=Object.fromEntries(['relaxed','standard','hard'].map(mode=>[mode,gameDifficulty('puzzle',mode).sizes]));
 const label=i=>String.fromCharCode(65+i);
 const shapeKey=shape=>shape.map(([x,y])=>`${x},${y}`).sort().join('|');
 function connected(cells,width){
@@ -62,7 +59,7 @@ export function puzzlePlacement(s,anchor){
   if(coords.some(([cx,cy])=>cx>=width||cy>=height||s.board[cy*width+cx]!==-1))return null;
   return coords.map(([cx,cy])=>cy*width+cx);
 }
-function hintLimit(s){return s.difficulty==='relaxed'?Infinity:s.difficulty==='hard'?1:2;}
+function hintLimit(s){return tuning(s,'puzzle').hints;}
 export const puzzle={
   create(s){s.round=1;deal(s);},
   view(s){
@@ -72,7 +69,7 @@ export const puzzle={
       grid(width,s.board.map((v,i)=>cell(i,v===-1?'':label(v),`${v===-1?'puzzle-empty':`puzzle-fill tile-${v}`} ${s.hintAnchor===i?'hint-anchor':''}`)),'puzzle-board expanded-puzzle')+
       `<div class="piece-tray puzzle-tray" aria-label="Puzzle pieces">${s.pieces.map((p,i)=>btn(`<small>${label(i)}</small>${shapeHTML(i===s.selected?transform(p.shape,s.rot,s.flip):p.shape)}`,'piece',i,`${i===s.selected?'selected':''} tile-${i}`,p.placed)).join('')}</div>`+
       controls(btn('Rotate ↻','rotate'),btn('Reflect ⇄','flip'),btn(`Ask teammate${s.difficulty==='relaxed'?'':` · ${Math.max(0,hintLimit(s)-(s.hints||0))} left`}`,'hint','','',(s.hints||0)>=hintLimit(s)))+
-      note(`Click an occupied piece to lift it. ${s.difficulty==='hard'?'Expert: three minutes per board, one hint.':'This session is untimed.'} These are original grid puzzles; the show used geometric silhouettes and rotating player access.`);
+      note(`Click an occupied piece to lift it. ${s.difficulty==='hard'?'Hard: three minutes per board, one hint.':'This session is untimed.'} These are original grid puzzles; the show used geometric silhouettes and rotating player access.`);
   },
   act(s,action,value){
     if(action==='piece'){const id=Number(value);if(!s.pieces[id]||s.pieces[id].placed)return;s.selected=id;s.rot=0;s.flip=false;s.hintAnchor=null;return;}
